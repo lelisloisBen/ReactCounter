@@ -18,25 +18,26 @@ const Counter = () => {
     }
 
 
-useEffect(() => {
-    if (first === 10) {
-        setFirst(0);
-        timer(first, setFirst)
-    } else {
-        timer(first, setFirst)
-    }
-},[first, setFirst]);
+    useEffect(() => {
+        if (first === 10) {
+            setFirst(0);
+            timer(second, setSecond)
 
-useEffect(() => {
-    setTimeout(() => {
-        if (second === 10) {
-            setSecond(0);
-            timer(second, setSecond)
         } else {
-            timer(second, setSecond)
+            timer(first, setFirst)
         }
-    },9000)
-},[second, setSecond]);
+    },[first]);
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         if (second === 10) {
+    //             setSecond(0);
+    //             timer(second, setSecond)
+    //         } else {
+    //             timer(second, setSecond)
+    //         }
+    //     },9000)
+    // },[second]);
 
     
 
