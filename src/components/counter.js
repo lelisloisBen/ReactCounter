@@ -19,25 +19,13 @@ const Counter = () => {
 
 
     useEffect(() => {
+        if (first === 9) timer(second, setSecond);
         if (first === 10) {
             setFirst(0);
-            timer(second, setSecond)
-
         } else {
-            timer(first, setFirst)
+            timer(first, setFirst);
         }
     },[first]);
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         if (second === 10) {
-    //             setSecond(0);
-    //             timer(second, setSecond)
-    //         } else {
-    //             timer(second, setSecond)
-    //         }
-    //     },9000)
-    // },[second]);
 
     
 
