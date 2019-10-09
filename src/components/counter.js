@@ -32,12 +32,12 @@ const Counter = () => {
     return (
         <>  
             <div className="container text-center mt-5">
-                <div class="jumbotron"><h1>REACT COUNTER</h1></div>
+                <div className="jumbotron"><h1>REACT COUNTER</h1></div>
             </div>
             
             <div className="mainCountDiv container text-center">
             
-                <Number num={<i class="far fa-clock"></i>} />
+                <Number num={<i className="far fa-clock"></i>} />
                 <Number num={sixth} />
                 <Number num={fifth} />
                 <Number num={fourth} />
