@@ -18,3 +18,7 @@ body {
   font-family: verdana;
   vertical-align: center;
 }
+
+.blackBg {
+  background-color: black;
+}

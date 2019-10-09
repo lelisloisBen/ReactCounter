@@ -11,8 +11,36 @@ const Counter = () => {
     const [fifth, setFifth] = useState(0);
     const [sixth, setSixth] = useState(0);
 
+    // toggle the background color
+    const [bg, setBg] = useState(0);
+    let backgroundChangeHandler = () => {
+        if (bg === 0) { document.body.style.backgroundColor = "black"; setBg(1); }
+        if (bg === 1) { document.body.style.backgroundColor = "#555555"; setBg(0); }
+    }
+    var timing;
+
+    // Pause the counter
+    const [pause, setPause] = useState(0);
+    let pauseHandler = () => {
+        if (pause === 0) { clearTimeout(timing); console.log(first); setFirst(first); setPause(1); }
+        if (pause === 1) { timer(first, setFirst); setPause(0) }
+    }
+    
+    // Alert every 10 secondes
+    let funnyAlert = [
+        `I guess if you want children beaten, you have to do it yourself.`,
+        `Look, everyone wants to be like Germany, but do we really have the pure strength of 'will'?`,
+        `You seem malnourished. Are you suffering from intestinal parasites?`,
+        `Calculon is gonna kill us and it's all everybody else's fault!`,
+        `Who are those horrible orange men?`
+    ]
+    let Alert = () => {
+        let random = Math.floor(Math.random() * funnyAlert.length);
+        alert(funnyAlert[random]);
+    }
+
     let timer = (varr, setter) => {
-        setTimeout(() => {
+        timing = setTimeout(() => {
             setter(varr + 1);
         },1000)   
     }
@@ -22,7 +50,7 @@ const Counter = () => {
     }
 
     useEffect(() => {
-        if (first === 10) { setFirst(0); addOne(second, setSecond); } else { timer(first, setFirst) }
+        if (first === 10) { setFirst(0); addOne(second, setSecond); Alert(); } else { timer(first, setFirst) }
         if (second === 6) { setSecond(0); addOne(third, setThird); };
         if (third === 10) { setThird(0); addOne(fourth, setFourth); };
         if (fifth === 6) { setFifth(0); addOne(sixth, setSixth); };
@@ -30,9 +58,11 @@ const Counter = () => {
     }, [first, second, third, fourth, fifth, sixth]);
 
     return (
-        <>  
+        <>
             <div className="container text-center mt-5">
                 <div className="jumbotron"><h1>REACT COUNTER</h1></div>
+                <button className="btn btn-danger mr-3" onClick={backgroundChangeHandler} >Toggle Background Color</button>
+                <button className="btn btn-info" onClick={pauseHandler} >pause counter</button>
             </div>
             
             <div className="mainCountDiv container text-center">
@@ -46,6 +76,7 @@ const Counter = () => {
                 <Number num={first} />
             </div>
             <Footer/>
+            
         </>
     );
 };
