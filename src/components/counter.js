@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Number from './number';
 import Footer from './footer';
 
 const Counter = () => {
@@ -35,24 +36,14 @@ const Counter = () => {
             </div>
             
             <div className="mainCountDiv container text-center">
-                <div className="num_tiles">
-                    {sixth}
-                </div>
-                <div className="num_tiles">
-                    {fifth}
-                </div>
-                <div className="num_tiles">
-                    {fourth}
-                </div>
-                <div className="num_tiles">
-                    {third}
-                </div>
-                <div className="num_tiles">
-                    {second}
-                </div>
-                <div className="num_tiles">
-                    {first}
-                </div>
+            
+                <Number num={<i class="far fa-clock"></i>} />
+                <Number num={sixth} />
+                <Number num={fifth} />
+                <Number num={fourth} />
+                <Number num={third} />
+                <Number num={second} />
+                <Number num={first} />
             </div>
             <Footer/>
         </>

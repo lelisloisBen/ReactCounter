@@ -14,3 +14,5 @@ The component does not need a local state, you can pass the number of seconds as
 ```
 
 You can find the clock icon on the left of the component in font-awesome.
+
+![Screen Shot 2019-10-08 at 9 21 44 PM](https://user-images.githubusercontent.com/54423322/66444570-ba276b80-ea11-11e9-9e4f-bac881b266c0.png)
