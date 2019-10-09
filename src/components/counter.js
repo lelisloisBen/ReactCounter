@@ -17,9 +17,9 @@ const Counter = () => {
         if (bg === 0) { document.body.style.backgroundColor = "black"; setBg(1); }
         if (bg === 1) { document.body.style.backgroundColor = "#555555"; setBg(0); }
     }
-    var timing;
-
+    
     // Pause the counter
+    var timing;
     const [pause, setPause] = useState(0);
     let pauseHandler = () => {
         if (pause === 0) { clearTimeout(timing); console.log(first); setFirst(first); setPause(1); }
@@ -62,11 +62,9 @@ const Counter = () => {
             <div className="container text-center mt-5">
                 <div className="jumbotron"><h1>REACT COUNTER</h1></div>
                 <button className="btn btn-danger mr-3" onClick={backgroundChangeHandler} >Toggle Background Color</button>
-                <button className="btn btn-info" onClick={pauseHandler} >pause counter</button>
+                <button className="btn btn-info" onClick={pauseHandler} >Pause/Play Counter</button>
             </div>
-            
             <div className="mainCountDiv container text-center">
-            
                 <Number num={<i className="far fa-clock"></i>} />
                 <Number num={sixth} />
                 <Number num={fifth} />
@@ -76,7 +74,6 @@ const Counter = () => {
                 <Number num={first} />
             </div>
             <Footer/>
-            
         </>
     );
 };
