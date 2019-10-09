@@ -20,10 +20,12 @@ const Counter = () => {
     
     // Pause the counter
     var timing;
+    const [playIcons, setPlayIcons] = useState('fas fa-pause');
+    const [playBtn, setPlayBtn] = useState('Pause');
     const [pause, setPause] = useState(0);
     let pauseHandler = () => {
-        if (pause === 0) { clearTimeout(timing); console.log(first); setFirst(first); setPause(1); }
-        if (pause === 1) { timer(first, setFirst); setPause(0) }
+        if (pause === 0) { clearTimeout(timing); console.log(first); setFirst(first); setPause(1); setPlayBtn('Play'); setPlayIcons('fas fa-play'); }
+        if (pause === 1) { timer(first, setFirst); setPause(0); setPlayBtn('Pause'); setPlayIcons('fas fa-pause') }
     }
     
     // Alert every 10 secondes
@@ -37,6 +39,8 @@ const Counter = () => {
     let Alert = () => {
         let random = Math.floor(Math.random() * funnyAlert.length);
         alert(funnyAlert[random]);
+        if (bg === 0) { document.body.style.backgroundColor = "black"; setBg(1); }
+        if (bg === 1) { document.body.style.backgroundColor = "#555555"; setBg(0); }
     }
 
     let timer = (varr, setter) => {
@@ -62,7 +66,7 @@ const Counter = () => {
             <div className="container text-center mt-5">
                 <div className="jumbotron"><h1>REACT COUNTER</h1></div>
                 <button className="btn btn-danger mr-3" onClick={backgroundChangeHandler} >Toggle Background Color</button>
-                <button className="btn btn-info" onClick={pauseHandler} >Pause/Play Counter</button>
+                <button className="btn btn-info" onClick={pauseHandler} ><i className={playIcons} ></i> {playBtn} Counter</button>
             </div>
             <div className="mainCountDiv container text-center">
                 <Number num={<i className="far fa-clock"></i>} />
